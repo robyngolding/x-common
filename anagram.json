@@ -1,0 +1,78 @@
+{
+    "#": [
+        "The string argument cases possible matches are passed in as",
+        "individual arguments rather than arrays. Languages can include",
+        "these string argument cases if passing individual arguments is",
+        "idiomatic in that language."
+    ],
+    "cases": [
+        {
+            "description": "no matches",
+            "subject": "diaper",
+            "possible matches": [ "hello", "world", "zombies", "pants"],
+            "expected": []
+        },
+        {
+            "description": "detects simple anagram",
+            "subject": "ant",
+            "possible matches": ["tan", "stand", "at"],
+            "expected": ["tan"]
+        },
+        {
+            "description": "does not detect false positives",
+            "subject": "galea",
+            "possible matches": ["eagle"],
+            "expected": []
+        },
+        {
+            "description": "detects multiple anagrams",
+            "subject": "master",
+            "possible matches": ["stream", "pigeon", "maters"],
+            "expected": ["stream", "maters"]
+        },
+        {
+            "description": "does not detect anagram subsets",
+            "subject": "good",
+            "possible matches": ["dog", "goody"],
+            "expected": []
+        },
+        {
+            "description": "detects anagram",
+            "subject": "listen",
+            "possible matches": ["enlists", "google", "inlets", "banana"],
+            "expected": ["inlets"]
+        },
+        {
+            "description": "detects multiple anagrams",
+            "subject": "allergy",
+            "possible matches": ["gallery", "ballerina", "regally", "clergy", "largely", "leading"],
+            "expected": ["gallery", "regally", "largely"]
+        },
+        {
+            "description": "detects anagrams case-insensitively",
+            "subject": "Orchestra",
+            "possible matches": ["cashregister", "Carthorse", "radishes"],
+            "expected": ["Carthorse"]
+        },
+        {
+            "description": "does not detect a word as its own anagram",
+            "subject": "banana",
+            "possible matches": ["Banana"],
+            "expected": []
+        }     
+    ],
+    "string argument cases": [
+        {
+            "description": "accepts string arguments",
+            "subject": "ant",
+            "possible matches": ["stand", "tan", "at"],
+            "expected": ["tan"]
+        },
+        {
+            "description": "accepts single string argument",
+            "subject": "ant",
+            "possible matches": ["tan"],
+            "expected": ["tan"]
+        },
+    ]
+}
