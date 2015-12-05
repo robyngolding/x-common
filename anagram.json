@@ -69,7 +69,7 @@
             "expected": ["Carthorse"]
         },
         {
-            "description": "detects anagrams using case-insensitve subject",
+            "description": "detects anagrams using case-insensitive subject",
             "subject": "Orchestra",
             "possible matches": ["cashregister", "carthorse", "radishes"],
             "expected": ["carthorse"]
@@ -85,12 +85,6 @@
             "subject": "banana",
             "possible matches": ["Banana"],
             "expected": []
-        },
-        {
-            "description": "detects an anagram but not the original word",
-            "subject": "corn",
-            "possible matches": ["corn" "dark" "Corn" "rank" "CORN" "cron" "park"],
-            "expected": ["cron"]
         },
         {
             "description": "does not detect a anagram if the original word is repeated",
@@ -150,6 +144,6 @@
             "subject": "ant",
             "possible matches": ["tan"],
             "expected": ["tan"]
-        },
+        }
     ]
 }
