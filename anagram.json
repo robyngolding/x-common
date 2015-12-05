@@ -3,7 +3,9 @@
         "The string argument cases possible matches are passed in as",
         "individual arguments rather than arrays. Languages can include",
         "these string argument cases if passing individual arguments is",
-        "idiomatic in that language."
+        "idiomatic in that language.",
+        "Some tests have a \"comment\" property, which provides more",
+        "information that could be added to the test case as a code comment."
     ],
     "cases": [
         {
@@ -59,7 +61,45 @@
             "subject": "banana",
             "possible matches": ["Banana"],
             "expected": []
-        }     
+        },
+        {
+            "description": "detects an anagram but not the original word",
+            "subject": "corn",
+            "possible matches": ["corn" "dark" "Corn" "rank" "CORN" "cron" "park"],
+            "expected": ["cron"]
+        },
+        {
+            "description": "does not detect a anagram if the original word is repeated",
+            "subject": "go",
+            "possible matches": ["go Go GO"],
+            "expected": []
+        },
+        {
+            "description": "anagrams must use all letters exactly once",
+            "subject": "tapper",
+            "possible matches": ["patter"],
+            "expected": []
+        },
+        {
+            "description": "eliminates anagrams with the same checksum",
+            "subject": "mass",
+            "possible matches": ["last"],
+            "expected": []
+        },
+        {
+            "description": "detects unicode anagrams",
+            "comment": "These words don't make sense, they're just greek letters cobbled together.",
+            "subject": "ΑΒΓ",
+            "possible matches": ["ΒΓΑ", "ΒΓΔ", "γβα"],
+            "expected": ["ΒΓΑ", "γβα"]
+        },
+        {
+            "description": "eliminates misleading unicode anagrams",
+            "comment": "Despite what a human might think these words different letters, the input uses Greek A and B while the list of potential anagrams uses Latin A and B.",
+            "subject": "ΑΒΓ",
+            "possible matches": ["ABΓ"],
+            "expected": []
+        }
     ],
     "string argument cases": [
         {
