@@ -49,17 +49,54 @@
             "expected": ["gallery", "regally", "largely"]
         },
         {
+            "description": "does not detect indentical words",
+            "subject": "corn",
+            "possible matches": ["corn", "dark", "Corn", "rank", "CORN", "cron", "park"],
+            "expected": ["cron"]
+        },  
+        {
+            "description": "does not detect non-anagrams with identical checksum",
+            "subject": "mass",
+            "possible matches": ["last"],
+            "expected": []
+        },
+        {
             "description": "detects anagrams case-insensitively",
             "subject": "Orchestra",
             "possible matches": ["cashregister", "Carthorse", "radishes"],
             "expected": ["Carthorse"]
         },
         {
+            "description": "detects anagrams using case-insensitve subject",
+            "subject": "Orchestra",
+            "possible matches": ["cashregister", "carthorse", "radishes"],
+            "expected": ["carthorse"]
+        },
+        {
+            "description": "detects anagrams using case-insensitve possible matches",
+            "subject": "orchestra",
+            "possible matches": ["cashregister", "Carthorse", "radishes"],
+            "expected": ["carthorse"]
+        },
+        {
             "description": "does not detect a word as its own anagram",
             "subject": "banana",
             "possible matches": ["Banana"],
             "expected": []
-        }     
+        },  
+        {
+            "description": "capital word is not own anagram",
+            "subject": "BANANA",
+            "possible matches": ["Banana"],
+            "expected": []
+
+        },
+        {
+            "description": "anagrams must use all letters exactly once",
+            "subject": "patter",
+            "possible matches": ["tapper"],
+            "expected": []
+        }
     ],
     "string argument cases": [
         {
